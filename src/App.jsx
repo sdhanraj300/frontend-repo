@@ -1,15 +1,21 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import Register from "./Register";
+import Login from "./Login";
 import Chat from "./components/Chat";
-
+import Navbar from "./components/Navbar";
+import img from "./assets/bg.png";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <Chat />
+    <div className="" style={{ backgroundImage: `url(${img})` }}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Register />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        </Routes>
+      </Router>
     </div>
   );
 }
